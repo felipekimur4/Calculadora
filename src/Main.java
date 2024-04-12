@@ -5,35 +5,79 @@ public class Main {
         float n2;
         float total;
         String operacao;
+        boolean reiniciar;
+        String verificaLoop;
 
         Scanner ler = new Scanner(System.in);
 
-        System.out.print("Qual operação voce quer fazer? (Divisao, Multiplicacao, Somar, Diminuir) ");
-        operacao = ler.next();
-        System.out.print("Digite o número ");
-        n1 = ler.nextFloat();
-        System.out.print("Digite o segundo número: ");
-        n2 = ler.nextFloat();
 
+        do {
+            reiniciar = true;
+            System.out.print("Qual operação voce quer fazer? (Divisao, Multiplicacao, Somar, Diminuir) ");
+            operacao = ler.next();
+            System.out.print("Digite o número ");
+            n1 = ler.nextFloat();
+            System.out.print("Digite o segundo número: ");
+            n2 = ler.nextFloat();
 
-        if (operacao.equals("Divisao")){
-             if (n1 == 0 && n2 == 0){
-                 System.out.println("Não é possivel dividir 0 por ele mesmo.");
+            if ( operacao.equals("Divisao") ) {
+                if ( n1 == 0 && n2 == 0 ) {
+                    System.out.println("Não é possivel dividir 0 por ele mesmo.\n");
+
+                } else {
+                    total = n1 / n2;
+                    System.out.printf("O seu total é %.2f\n", total);
+                    System.out.println("Deseja fazer outro  calculo?(sim ou nao)");
+                    verificaLoop = ler.next();
+                    if ( verificaLoop.equals("sim")) {
+                        reiniciar = true;
+                    } else {
+                        reiniciar = false;
+                    }
+                }
+            } else if ( operacao.equals("Multiplicacao") ) {
+                total = n1 * n2;
+                System.out.printf("O seu total é %.2f\n", total);
+                System.out.println("Deseja fazer outro  calculo?(sim ou nao)");
+                verificaLoop = ler.next();
+                if ( verificaLoop.equals("sim")) {
+                    reiniciar = true;
+                } else {
+                    reiniciar = false;
+                }
+
+            } else if ( operacao.equals("Somar") ) {
+                total = n1 + n2;
+                System.out.printf("O seu total é %.2f\n", total);
+                System.out.println("Deseja fazer outro  calculo?(sim ou nao)");
+                verificaLoop = ler.next();
+                if ( verificaLoop.equals("sim")) {
+                    reiniciar = true;
+                } else {
+                    reiniciar = false;
+                }
+            } else if ( operacao.equals("Diminuir\n") ) {
+                total = n1 - n2;
+                System.out.printf("O seu total é %.\n", total);
+                System.out.println("Deseja fazer outro  calculo?(sim ou nao)");
+                verificaLoop = ler.next();
+                if ( verificaLoop.equals("sim")) {
+                    reiniciar = true;
+                } else {
+                    reiniciar = false;
+                }
             } else {
-                 total = n1 / n2;
-                 System.out.printf("O seu total é %.2f", total);
-             }
-        } else if (operacao.equals("Multiplicacao")){
-            total = n1 * n2;
-            System.out.printf("O seu total é %.2f", total);
-        } else if (operacao.equals("Somar")){
-            total = n1 + n2;
-            System.out.printf("O seu total é %.2f", total);
-        } else if (operacao.equals("Diminuir")){
-            total = n1 - n2;
-            System.out.printf("O seu total é %.2f", total);
-        } else{
-            System.out.println("Operação inválida");
-        }
+                System.out.println("Operação inválida\n");
+                System.out.println("Deseja fazer outro  calculo?(sim ou nao)");
+                verificaLoop = ler.next();
+                if ( verificaLoop.equals("sim")) {
+                    reiniciar = true;
+                } else {
+                    reiniciar = false;
+                }
+            }
+
+
+        } while (reiniciar == true);
     }
 }
