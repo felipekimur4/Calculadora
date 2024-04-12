@@ -3,6 +3,7 @@ public class Main {
     public static void main(String[] args) {
         float n1;
         float n2;
+        float total;
         String operacao;
 
         Scanner ler = new Scanner(System.in);
@@ -15,11 +16,13 @@ public class Main {
         n2 = ler.nextFloat();
 
 
-        float total;
-
         if (operacao.equals("Divisao")){
-            total = n1 / n2;
-            System.out.printf("O seu total é %.2f", total);
+             if (n1 == 0 && n2 == 0){
+                 System.out.println("Não é possivel dividir 0 por ele mesmo.");
+            } else {
+                 total = n1 / n2;
+                 System.out.printf("O seu total é %.2f", total);
+             }
         } else if (operacao.equals("Multiplicacao")){
             total = n1 * n2;
             System.out.printf("O seu total é %.2f", total);
@@ -32,8 +35,5 @@ public class Main {
         } else{
             System.out.println("Operação inválida");
         }
-
-
-
     }
 }
