@@ -20,8 +20,8 @@ public class Main {
             n2 = ler.nextFloat();
 
             if (operacao.equals("Divisao")) {
-                if (n1 == 0 && n2 == 0) {
-                    System.out.println("Não é possivel dividir 0 por ele mesmo.\n");
+                if (n1 == 0 && n2 == 0 || n1 > 0 && n2 == 0) {
+                    System.out.println("Não é possivel dividir por 0.\n");
                 } else {
                     total = n1 / n2;
                 }
@@ -31,7 +31,7 @@ public class Main {
             } else if (operacao.equals("Somar")) {
                 total = n1 + n2;
 
-            } else if (operacao.equals("Diminuir\n")) {
+            } else if (operacao.equals("Diminuir")) {
                 total = n1 - n2;
 
             } else {
